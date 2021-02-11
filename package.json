@@ -1,0 +1,28 @@
+{
+  "name": "configdb",
+  "version": "0.1.0",
+  "description": "Config database in human readable YAML format",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --watch --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eldoy/configdb"
+  },
+  "keywords": [],
+  "author": "Vidar Eldøy <vidar@eldoy.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "cuid": "^2.1.8",
+    "extras": "^0.1.5",
+    "js-yaml": "^4.0.0",
+    "lodash": "^4.17.20"
+  }
+}
