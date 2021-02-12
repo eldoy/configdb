@@ -6,7 +6,8 @@ Config database in human readable YAML format.
 
 ### Usage
 
-**Set database name, default is 'configdb.yml' if omitted**
+**Set database name**
+Default is `configdb.yml` if omitted.
 ```js
 CONFIGDB_PATH = 'config.yml'
 ```
@@ -16,7 +17,8 @@ CONFIGDB_PATH = 'config.yml'
 const db = require('configdb')
 ```
 
-**Create document, 'user' is the name of the model/collection**
+**Create document**
+`user` is the name of the model/collection in this example.
 ```js
 const result = db('user').create({ email: 'vidar@example.com' })
 
@@ -65,6 +67,7 @@ const result = db('user').count({ email: 'vidar@example.com' })
 ```
 
 **Clear collection**
+Careful, this will wipe all your data for this collection.
 ```js
 db('user').clear()
 ```
