@@ -2,52 +2,70 @@
 Config database in human readable YAML format.
 
 ### Install
-With Node.js:
 `npm i configdb`
 
 ### Usage
-```js
-// Require library
-const db = require('wavedb')()
 
-// Create document, 'user' is the name of the model/collection
-const result = await db('user').create({ email: 'vidar@example.com' })
+**Set database name, default is 'configdb.yml' if omitted**
+```js
+CONFIGDB_PATH = 'config.yml'
+```
+
+**Require library**
+```js
+const db = require('configdb')
+```
+
+**Create document, 'user' is the name of the model/collection**
+```js
+const result = db('user').create({ email: 'vidar@example.com' })
 
 // Returns an object with the id
 { id: 'ck2a5xf2c0000okk3dbvz4n3i' }
+```
 
-// Update documents, changes all matches
-const result = await db('user').update({ email: 'vidar@example.com' }, { email: 'hello@example.com' })
+**Update documents, changes all matches**
+```js
+const result = db('user').update({ email: 'vidar@example.com' }, { email: 'hello@example.com' })
 
 // Returns the number of changed documents
 { n: 1 }
+```
 
-// Delete documents, deletes all matches
-const result = await db('user').delete({ email: 'vidar@example.com' })
+**Delete documents, deletes all matches**
+```js
+const result = db('user').delete({ email: 'vidar@example.com' })
 
-// Returns the number of deleted documents
+// Returns the number of deleted documents**
 { n: 1 }
+```
 
-// Get a single document
-const result = await db('user').get({ email: 'vidar@example.com' })
+**Get a single document**
+```js
+const result = db('user').get({ email: 'vidar@example.com' })
 
 // Returns the document as a javascript object
 { id: 'ck2a5xf2c0000okk3dbvz4n3i', email: 'vidar@example.com' }
+```
 
-// Get multiple documents
-const result = await db('user').find({ email: 'vidar@example.com' })
+**Get multiple documents**
+```js
+const result = db('user').find({ email: 'vidar@example.com' })
 
 // Returns an array of the documents
 [{ id: 'ck2a5xf2c0000okk3dbvz4n3i', email: 'vidar@example.com' }]
+```
 
-// Count documents
-const result = await db('user').count({ email: 'vidar@example.com' })
+**Count documents**
+```js
+const result = db('user').count({ email: 'vidar@example.com' })
 
 // Returns the count as an integer
 2
-
-// Clear collection. WARNING: will wipe all your data for this collection
-await db('user').clear()
-
 ```
+
+**Clear collection**
+db('user').clear()
+```
+
 MIT licensed. Enjoy!
