@@ -36,7 +36,7 @@ const result = db('user').update({ email: 'vidar@example.com' }, { email: 'hello
 ```js
 const result = db('user').delete({ email: 'vidar@example.com' })
 
-// Returns the number of deleted documents**
+// Returns the number of deleted documents
 { n: 1 }
 ```
 
@@ -65,6 +65,7 @@ const result = db('user').count({ email: 'vidar@example.com' })
 ```
 
 **Clear collection**
+```js
 db('user').clear()
 ```
 
