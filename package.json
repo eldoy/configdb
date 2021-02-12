@@ -1,6 +1,6 @@
 {
   "name": "configdb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Config database in human readable YAML format",
   "main": "index.js",
   "directories": {
