@@ -32,9 +32,9 @@ describe('configdb', () => {
   })
 
   it('should find documents', () => {
-    const first = db('user').create({ email: 'vidar@example.com' })
+    const first = db('user').create({ email: 'a@example.com' })
     expect(first.id).toBeDefined()
-    const second = db('user').create({ email: 'vidar@example.com' })
+    const second = db('user').create({ email: 'b@example.com' })
     expect(second.id).toBeDefined()
     let result = db('user').find()
     expect(result.length).toBe(2)
@@ -44,16 +44,9 @@ describe('configdb', () => {
     result = db('user').find({ id: second.id })
     expect(result.length).toBe(1)
     expect(result[0].id).toBe(second.id)
-  })
-
-  it('should support find options', () => {
-    const first = db('user').create({ email: 'a@example.com' })
-    expect(first.id).toBeDefined()
-    const second = db('user').create({ email: 'b@example.com' })
-    expect(second.id).toBeDefined()
 
     // Sort
-    let result = db('user').find({}, { sort: { email: 1 } })
+    result = db('user').find({}, { sort: { email: 1 } })
     expect(result[0].email).toBe('a@example.com')
 
     result = db('user').find({}, { sort: { email: -1 } })
