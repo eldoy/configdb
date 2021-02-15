@@ -1,5 +1,5 @@
 # ConfigDB
-Config database in human readable YAML format.
+Persistent in-memory database in human readable YAML format.
 
 ### Install
 `npm i configdb`
