@@ -57,24 +57,32 @@ const result = db('user').get({ email: 'vidar@example.com' })
 ```
 
 **Find multiple documents**
+All documents
 ```js
-// All documents
 const result = db('user').find()
-
-// Find all documents with this email
-const result = db('user').find({ email: 'vidar@example.com' })
-
-// Find all and sort descending by email
-const result = db('user').find({}, { sort: { email: -1 } })
-
-// Find all and skip
-const result = db('user').find({}, { skip: 1 })
-
-// Find all and limit
-const result = db('user').find({}, { limit: 1 })
 
 // Returns an array of the documents
 [{ id: 'ck2a5xf2c0000okk3dbvz4n3i', email: 'vidar@example.com' }]
+```
+
+Find all documents with this email
+```js
+const result = db('user').find({ email: 'vidar@example.com' })
+```
+
+Find all and sort descending by email
+```js
+const result = db('user').find({}, { sort: { email: -1 } })
+```
+
+Find all and skip
+```js
+const result = db('user').find({}, { skip: 1 })
+```
+
+Find all and limit
+```js
+const result = db('user').find({}, { limit: 1 })
 ```
 
 **Count documents**
