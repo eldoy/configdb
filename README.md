@@ -58,7 +58,7 @@ const result = db('user').get({ email: 'vidar@example.com' })
 
 **Find multiple documents**
 
-All documents
+All documents.
 ```js
 const result = db('user').find()
 
@@ -66,27 +66,27 @@ const result = db('user').find()
 [{ id: 'ck2a5xf2c0000okk3dbvz4n3i', email: 'vidar@example.com' }]
 ```
 
-Find all documents by email
+Find all documents by email.
 ```js
 const result = db('user').find({ email: 'vidar@example.com' })
 ```
 
-Find all and sort ascending by email
+Sort ascending by email.
 ```js
 const result = db('user').find({}, { sort: { email: 1 } })
 ```
 
-Find all and sort descending by email
+Sort descending by email.
 ```js
 const result = db('user').find({}, { sort: { email: -1 } })
 ```
 
-Find all and skip
+Find all and skip.
 ```js
 const result = db('user').find({}, { skip: 1 })
 ```
 
-Find all and limit
+Find all and limit.
 ```js
 const result = db('user').find({}, { limit: 1 })
 ```
