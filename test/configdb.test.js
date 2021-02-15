@@ -46,6 +46,9 @@ describe('configdb', () => {
     expect(result[0].id).toBe(second.id)
 
     // Sort
+    result = db('user').find({}, { sort: {} })
+    expect(result[0].email).toBe('a@example.com')
+
     result = db('user').find({}, { sort: { email: 1 } })
     expect(result[0].email).toBe('a@example.com')
 
