@@ -46,6 +46,38 @@ describe('configdb', () => {
     expect(result[0].id).toBe(second.id)
   })
 
+  it('should support find options', () => {
+    const first = db('user').create({ email: 'a@example.com' })
+    expect(first.id).toBeDefined()
+    const second = db('user').create({ email: 'b@example.com' })
+    expect(second.id).toBeDefined()
+
+    // Sort
+    let result = db('user').find({}, { sort: { email: 1 } })
+    expect(result[0].email).toBe('a@example.com')
+
+    result = db('user').find({}, { sort: { email: -1 } })
+    expect(result[0].email).toBe('b@example.com')
+
+    // Skip
+    result = db('user').find({}, { skip: 0 })
+    expect(result[0].email).toBe('a@example.com')
+    expect(result.length).toBe(2)
+
+    result = db('user').find({}, { skip: 1 })
+    expect(result[0].email).toBe('b@example.com')
+    expect(result.length).toBe(1)
+
+    // Limit
+    result = db('user').find({}, { limit: 0 })
+    expect(result[0].email).toBe('a@example.com')
+    expect(result.length).toBe(2)
+
+    result = db('user').find({}, { limit: 1 })
+    expect(result[0].email).toBe('a@example.com')
+    expect(result.length).toBe(1)
+  })
+
   it('should count documents', () => {
     const first = db('user').create({ email: 'vidar@example.com' })
     expect(first.id).toBeDefined()
