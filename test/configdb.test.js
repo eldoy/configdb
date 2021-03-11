@@ -29,6 +29,7 @@ describe('configdb', () => {
     expect(first.id).toBeDefined()
     const second = db('user').create({ email: 'b@example.com' })
     expect(second.id).toBeDefined()
+
     let result = db('user').find()
     expect(result.length).toBe(2)
     expect(result[0].id).toBe(first.id)
@@ -37,6 +38,15 @@ describe('configdb', () => {
     result = db('user').find({ id: second.id })
     expect(result.length).toBe(1)
     expect(result[0].id).toBe(second.id)
+
+    // Multiple fields
+    result = db('user').find({ id: first.id, email: 'b@example.com' })
+    expect(result.length).toBe(0)
+    expect(result).toEqual([])
+
+    result = db('user').find({ id: first.id, email: 'a@example.com' })
+    expect(result.length).toBe(1)
+    expect(result[0].id).toBe(first.id)
 
     // Sort
     result = db('user').find({}, { sort: {} })
