@@ -1,6 +1,16 @@
 const match = require('../lib/match.js')
 
 describe('match', () => {
+  it('should match value', async () => {
+    expect(match(2, 2)).toBe(true)
+    expect(match('str', 'hello')).toBe(false)
+  })
+
+  it('should match regexp', async () => {
+    expect(match(/example/, 'example')).toBe(true)
+    expect(match(/5/, 'example')).toBe(false)
+  })
+
   it('should match $eq', async () => {
     expect(match({ $eq: 2 }, 2)).toBe(true)
     expect(match({ $eq: 2 }, 3)).toBe(false)

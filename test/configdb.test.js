@@ -48,6 +48,11 @@ describe('configdb', () => {
     expect(result.length).toBe(1)
     expect(result[0].id).toBe(first.id)
 
+    // Regexp
+    result = db('user').find({ id: first.id, email: /example/ })
+    expect(result.length).toBe(1)
+    expect(result[0].id).toBe(first.id)
+
     // Sort
     result = db('user').find({}, { sort: {} })
     expect(result[0].email).toBe('a@example.com')
