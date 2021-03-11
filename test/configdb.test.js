@@ -2,15 +2,8 @@ const db = require('../index.js')
 const cuid = require('cuid')
 
 describe('configdb', () => {
-  beforeEach(function(done) {
-    db('user').clear()
-    done()
-  })
-
-  afterAll(function(done) {
-    db('user').clear()
-    done()
-  })
+  beforeEach(db('user').clear)
+  afterAll(db('user').clear)
 
   it('should create and find a user with an id', () => {
     const id = cuid()
@@ -116,5 +109,11 @@ describe('configdb', () => {
     let result = db('user').find()
     expect(result.length).toBe(1)
     expect(result[0].email).toBe('vidar@example.com')
+  })
+
+  it('should load data', () => {
+    db('user').load([{ email: 'vidar@example.com' }])
+    const user = db('user').get()
+    expect(user.email).toBe('vidar@example.com')
   })
 })

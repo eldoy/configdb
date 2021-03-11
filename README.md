@@ -1,17 +1,10 @@
 # ConfigDB
-Persistent in-memory database in human readable YAML format.
+In-memory database with MongoDB-like API.
 
 ### Install
 `npm i configdb`
 
 ### Usage
-
-**Set database name**
-
-Default is `configdb.yml` if omitted.
-```js
-CONFIGDB_PATH = 'config.yml'
-```
 
 **Require library**
 ```js
@@ -97,6 +90,12 @@ const result = db('user').count({ email: 'vidar@example.com' })
 
 // Returns the count as an integer
 2
+```
+
+**Load collection**
+
+```js
+db('user').load([{ email: 'vidar@example.com' }])
 ```
 
 **Clear collection**
