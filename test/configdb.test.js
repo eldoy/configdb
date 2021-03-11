@@ -82,6 +82,26 @@ describe('configdb', () => {
     expect(result.length).toBe(1)
   })
 
+  it('should work with $or for find', async () => {
+    const first = db('user').create({ email: 'a@example.com', published: true })
+    const second = db('user').create({ email: 'b@example.com', published: false })
+
+    let result = db('user').find({ $or: [{ email: 'a@example.com' }] })
+    expect(result.length).toBe(1)
+
+    result = db('user').find({ $or: [{ email: /example/ }] })
+    expect(result.length).toBe(2)
+
+    result = db('user').find({ $or: [{ email: 'a@example.com' }, { published: false }] })
+    expect(result.length).toBe(2)
+
+    result = db('user').find({ $or: [{ email: 'a@example.com' }, { published: true }] })
+    expect(result.length).toBe(1)
+
+    result = db('user').find({ $or: [{ email: 'a@example.com' }], email: 'b@example.com' })
+    expect(result.length).toBe(0)
+  })
+
   it('should count documents', () => {
     const first = db('user').create({ email: 'vidar@example.com' })
     expect(first.id).toBeDefined()
