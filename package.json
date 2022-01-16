@@ -1,6 +1,6 @@
 {
   "name": "configdb",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Persistent in-memory database in human readable YAML format",
   "main": "index.js",
   "directories": {
