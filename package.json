@@ -17,7 +17,7 @@
   "author": "Vidar Eldøy <vidar@eldoy.com>",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^26.6.3"
+    "jest": "^27.4.7"
   },
   "dependencies": {
     "lodash": "^4.17.21"
