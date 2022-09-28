@@ -1,7 +1,7 @@
 {
   "name": "configdb",
   "version": "0.2.4",
-  "description": "Persistent in-memory database in human readable YAML format",
+  "description": "Persistent in-memory database with MongoDB syntax",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -17,7 +17,7 @@
   "author": "Vidar Eldøy <vidar@eldoy.com>",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^27.4.7"
+    "jest": "^29.0.3"
   },
   "dependencies": {
     "cuid": "^2.1.8",
