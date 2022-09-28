@@ -1,6 +1,6 @@
 {
   "name": "configdb",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Persistent in-memory database with MongoDB syntax",
   "main": "index.js",
   "directories": {
